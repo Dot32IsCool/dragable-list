@@ -1,6 +1,7 @@
 // import interact from 'https://cdn.interactjs.io/v1.10.17/interactjs/index.js'
 
 interact('li').draggable({
+	lockAxis: 'y',
 	modifiers: [
 		interact.modifiers.restrictRect({
 		  restriction: 'parent',
@@ -13,24 +14,6 @@ interact('li').draggable({
   
 		// call this function on every dragend event
 		end (event) {
-			// get the parent element
-			var parent = event.target.parentNode
-			console.log(parent)
-			// get the index of the element
-			var index = Array.prototype.indexOf.call(parent.children, event.target)
-			// get the height of the element
-			var computedHeight = event.target.getBoundingClientRect().height
-			console.log("Height: " + computedHeight)
-			// get how many elements it is down in the list
-			var newIndex = index + Math.ceil(event.target.getAttribute('data-y') / computedHeight)
-			console.log(newIndex)
-			// set index of the element
-			if (newIndex < parent.children.length -1) {
-				parent.insertBefore(event.target, parent.children[newIndex]);
-			} else {
-				parent.appendChild(event.target)
-			}
-
 			// reset translation
 			event.target.style.transform = 'translate(0px, 0px)'
 			// update the posiion attributes
