@@ -19,8 +19,8 @@ interact('li').draggable({
 			// get the index of the element
 			var index = Array.prototype.indexOf.call(parent.children, event.target)
 			// get the height of the element
-			var computedHeight = event.target.offsetHeight
-			console.log(computedHeight)
+			var computedHeight = event.target.getBoundingClientRect().height
+			console.log("Height: " + computedHeight)
 			// get how many elements it is down in the list
 			var newIndex = index + Math.ceil(event.target.getAttribute('data-y') / computedHeight)
 			console.log(newIndex)
@@ -64,7 +64,7 @@ interact('li').draggable({
 	// get the index of the element
 	var index = Array.prototype.indexOf.call(parent.children, target)
 	// get the height of the element
-	var computedHeight = target.offsetHeight
+	var computedHeight = target.getBoundingClientRect().height
 	// get how many elements it is down in the list
 	var newIndex = index + Math.ceil(target.getAttribute('data-y') / computedHeight)
 	// set index of the element
