@@ -16,7 +16,7 @@ ul {
 	list-style-type: none;
 	max-width: fit-content;
 	padding: 0;
-	/* padding-bottom: 0.1em; */
+	padding-bottom: 0.1em;
 	display: flex;
 	flex-direction: column;
 	/* background-color: rgb(31, 31, 31); */
@@ -42,6 +42,8 @@ li {
 	overflow: hidden; 
 	white-space: nowrap;
 	border-bottom: 3px solid rgb(48, 48, 48);
+
+	transition: transform 0.2s;
 }
 
 li:hover {
