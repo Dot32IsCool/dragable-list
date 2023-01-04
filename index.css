@@ -17,6 +17,9 @@ li {
 	color: white;
 	padding: 0.5em;
 	border-radius: 0.5em;
+	text-overflow: ellipsis;
+	overflow: hidden; 
+	white-space: nowrap;
 }
 
 li:hover {
