@@ -18,8 +18,11 @@ interact('li').draggable({
 			console.log(parent)
 			// get the index of the element
 			var index = Array.prototype.indexOf.call(parent.children, event.target)
+			// get the height of the element
+			var computedHeight = event.target.offsetHeight
+			console.log(computedHeight)
 			// get how many elements it is down in the list
-			var newIndex = index + Math.ceil(event.target.getAttribute('data-y') / 18.5)
+			var newIndex = index + Math.ceil(event.target.getAttribute('data-y') / computedHeight)
 			console.log(newIndex)
 			// set index of the element
 			if (newIndex < parent.children.length -1) {

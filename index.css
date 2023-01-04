@@ -1,0 +1,16 @@
+body {
+	font-family: 'Sen', Arial, Helvetica, sans-serif;
+}
+
+ul {
+	list-style-type: none;
+	max-width: fit-content;
+	padding: 0;
+}
+
+li {
+	margin: 10px;
+	background-color: rgb(213, 213, 213);
+	padding: 10px;
+	border-radius: 1em;
+}
