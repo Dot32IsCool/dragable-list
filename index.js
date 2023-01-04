@@ -35,6 +35,8 @@ interact('li').draggable({
 			event.target.style.transform = 'translate(0px, 0px)'
 			// update the posiion attributes
 			event.target.setAttribute('data-y', 0)
+
+			event.target.style.zIndex = 0
 		}
 	  }
   })
@@ -44,9 +46,12 @@ interact('li').draggable({
 	// keep the dragged position in the data-x/data-y attributes
 	var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
   
+	target.style.zIndex = 100
+	
 	// translate the element
 	target.style.transform = 'translate(0px, ' + y + 'px)'
   
 	// update the posiion attributes
 	target.setAttribute('data-y', y)
+
   }
