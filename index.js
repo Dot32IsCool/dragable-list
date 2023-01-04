@@ -50,6 +50,8 @@ interact('li').draggable({
 	var computedHeight = target.getBoundingClientRect().height
 	// get how many elements it is down in the list
 	var newIndex = index + Math.ceil(target.getAttribute('data-y') / computedHeight)
+	// return if the element is already in the right place
+	if (newIndex === index) return
 	// set index of the element
 	if (newIndex < parent.children.length) {
 		parent.insertBefore(target, parent.children[newIndex]);
