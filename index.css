@@ -1,5 +1,6 @@
 body {
 	font-family: 'Sen', Arial, Helvetica, sans-serif;
+	background-color: rgb(31, 31, 31);
 }
 
 ul {
@@ -9,8 +10,15 @@ ul {
 }
 
 li {
-	margin: 10px;
-	background-color: rgb(213, 213, 213);
-	padding: 10px;
-	border-radius: 1em;
+	margin: 0.5em;
+	background-color: rgb(48, 48, 48);;
+	color: white;
+	padding: 0.5em;
+	border-radius: 0.5em;
+}
+
+li:hover {
+	outline-width: 3px;
+	outline-style: solid;
+	outline-color: rgb(90, 90, 90);
 }
