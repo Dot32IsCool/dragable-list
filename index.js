@@ -47,11 +47,35 @@ interact('li').draggable({
 	var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
   
 	target.style.zIndex = 100
-	
+
 	// translate the element
 	target.style.transform = 'translate(0px, ' + y + 'px)'
   
 	// update the posiion attributes
 	target.setAttribute('data-y', y)
 
+	reorder(event)
+  }
+
+  function reorder (event) {
+	var target = event.target
+	// get the parent element
+	var parent = target.parentNode
+	// get the index of the element
+	var index = Array.prototype.indexOf.call(parent.children, target)
+	// get the height of the element
+	var computedHeight = target.offsetHeight
+	// get how many elements it is down in the list
+	var newIndex = index + Math.ceil(target.getAttribute('data-y') / computedHeight)
+	// set index of the element
+	if (newIndex < parent.children.length -1) {
+		parent.insertBefore(target, parent.children[newIndex]);
+	} else {
+		parent.appendChild(target)
+		target.setAttribute('data-y', Math.min(target.getAttribute('data-y'), 0))
+	}
+	// make the translation relative to the new position
+	target.style.transform = 'translate(0px, ' + (target.getAttribute('data-y') % computedHeight) + 'px)'
+	// update the posiion attributes
+	target.setAttribute('data-y', target.getAttribute('data-y') % computedHeight)
   }
