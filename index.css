@@ -1,9 +1,18 @@
 body {
 	font-family: 'Sen', Arial, Helvetica, sans-serif;
 	background-color: rgb(31, 31, 31);
+	margin: 0;
+}
+
+.list {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 ul {
+	margin: auto;
 	list-style-type: none;
 	max-width: fit-content;
 	padding: 0;
