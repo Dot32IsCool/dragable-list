@@ -14,18 +14,17 @@ ul {
 }
 
 li {
-	margin: 0.2em;
-	background-color: rgb(48, 48, 48);;
+	/* margin: 0.2em; */
+	background-color: rgb(31, 31, 31);;
 	color: white;
 	padding: 0.5em;
-	border-radius: 0.5em;
+	/* border-radius: 0.5em; */
 	text-overflow: ellipsis;
 	overflow: hidden; 
 	white-space: nowrap;
+	border-bottom: 3px solid rgb(48, 48, 48);
 }
 
 li:hover {
-	outline-width: 3px;
-	outline-style: solid;
-	outline-color: rgb(90, 90, 90);
+	background-color: rgb(48, 48, 48);
 }
