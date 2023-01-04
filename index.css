@@ -11,7 +11,7 @@ body {
 	justify-content: center;
 }
 
-ul {
+ol {
 	margin: auto;
 	list-style-type: none;
 	max-width: fit-content;
