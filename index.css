@@ -50,7 +50,7 @@ li {
 }
 
 li:hover {
-	background-color: rgb(48, 48, 48);
+	/* background-color: rgb(48, 48, 48); */
 	cursor: pointer;
 }
 
@@ -59,6 +59,10 @@ li p {
 	padding: 0.5em;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
+}
+
+.selected {
+	background-color: rgb(48, 48, 48);
 }
 
 /* li::before {

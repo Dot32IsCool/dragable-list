@@ -62,3 +62,14 @@ interact('li > span').draggable({
 	// update the posiion attributes
 	target.setAttribute('data-y', target.getAttribute('data-y') % computedHeight)
   }
+
+var list_elements = document.querySelectorAll('li')
+
+var myFunction = function() {
+    // this.style.backgroundColor = 'red'
+	this.classList.toggle("selected")
+}
+
+for (var i = 0; i < list_elements.length; i++) {
+    list_elements[i].addEventListener('click', myFunction, false)
+}
