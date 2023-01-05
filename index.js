@@ -1,10 +1,10 @@
 // import interact from 'https://cdn.interactjs.io/v1.10.17/interactjs/index.js'
 
-interact('li').draggable({
+interact('li > span').draggable({
 	lockAxis: 'y',
 	modifiers: [
 		interact.modifiers.restrictRect({
-		  restriction: 'parent',
+		  restriction: '.list',
 		  endOnly: false
 		})
 	  ],
@@ -15,17 +15,17 @@ interact('li').draggable({
 		// call this function on every dragend event
 		end (event) {
 			// reset translation
-			event.target.style.transform = 'translate(0px, 0px)'
+			event.target.parentNode.style.transform = 'translate(0px, 0px)'
 			// update the posiion attributes
-			event.target.setAttribute('data-y', 0)
+			event.target.parentNode.setAttribute('data-y', 0)
 
-			event.target.style.zIndex = 0
+			event.target.parentNode.style.zIndex = 0
 		}
 	  }
   })
 
   function dragMoveListener (event) {
-	var target = event.target
+	var target = event.target.parentNode
 	// keep the dragged position in the data-x/data-y attributes
 	var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
   
@@ -41,7 +41,7 @@ interact('li').draggable({
   }
 
   function reorder (event) {
-	var target = event.target
+	var target = event.target.parentNode
 	// get the parent element
 	var parent = target.parentNode
 	// get the index of the element
