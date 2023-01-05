@@ -22,7 +22,7 @@ interact('li > span').draggable({
 			event.target.parentNode.style.zIndex = 0
 		}
 	  }
-  })
+  }).styleCursor(false)
 
   function dragMoveListener (event) {
 	var target = event.target.parentNode

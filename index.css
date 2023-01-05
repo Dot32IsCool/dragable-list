@@ -51,6 +51,7 @@ li {
 
 li:hover {
 	background-color: rgb(48, 48, 48);
+	cursor: pointer;
 }
 
 li p {
@@ -80,4 +81,5 @@ details {
 	'GRAD' 0,
 	'opsz' 40;
 	color: rgb(131, 131, 131);
+	cursor: ns-resize;
   }
