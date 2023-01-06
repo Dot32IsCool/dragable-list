@@ -2,26 +2,20 @@
 
 interact('li > span').draggable({
 	lockAxis: 'y',
-	modifiers: [
-		interact.modifiers.restrictRect({
-		  restriction: '.list',
-		  endOnly: false
-		})
-	  ],
-	  listeners: {
-		// call this function on every dragmove event
-		move: dragMoveListener,
-  
-		// call this function on every dragend event
-		end (event) {
-			// reset translation
-			event.target.parentNode.style.transform = 'translate(0px, 0px)'
-			// update the posiion attributes
-			event.target.parentNode.setAttribute('data-y', 0)
+	listeners: {
+	// call this function on every dragmove event
+	move: dragMoveListener,
 
-			event.target.parentNode.style.zIndex = 0
-		}
-	  }
+	// call this function on every dragend event
+	end (event) {
+		// reset translation
+		event.target.parentNode.style.transform = 'translate(0px, 0px)'
+		// update the posiion attributes
+		event.target.parentNode.setAttribute('data-y', 0)
+
+		event.target.parentNode.style.zIndex = 0
+	}
+	}
   }).styleCursor(false)
 
   function dragMoveListener (event) {
