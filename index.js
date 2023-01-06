@@ -49,7 +49,7 @@ interact('li > span').draggable({
 	// get the height of the element
 	var computedHeight = target.getBoundingClientRect().height
 	// get how many elements it is down in the list
-	var newIndex = index + Math.ceil(target.getAttribute('data-y') / computedHeight)
+	var newIndex = Math.max(index + Math.ceil(target.getAttribute('data-y') / computedHeight), 0)
 	// set index of the element
 	if (newIndex < parent.children.length) {
 		parent.insertBefore(target, parent.children[newIndex]);
@@ -57,10 +57,17 @@ interact('li > span').draggable({
 		parent.appendChild(target)
 		target.setAttribute('data-y', Math.min(target.getAttribute('data-y'), 0))
 	}
-	// make the translation relative to the new position
-	target.style.transform = 'translate(0px, ' + (target.getAttribute('data-y') % computedHeight) + 'px)'
-	// update the posiion attributes
-	target.setAttribute('data-y', target.getAttribute('data-y') % computedHeight)
+	// make the translation relative to the new position, if it is not the first element
+	if (newIndex > 0) {
+		console.log(newIndex)
+		target.style.transform = 'translate(0px, ' + (target.getAttribute('data-y') % computedHeight) + 'px)'
+		// update the posiion attributes
+		target.setAttribute('data-y', target.getAttribute('data-y') % computedHeight)
+	} else {
+		target.style.transform = 'translate(0px, 0px)'
+		// update the posiion attributes
+		target.setAttribute('data-y', 0)
+	}
   }
 
 var pressedKeys = {};
