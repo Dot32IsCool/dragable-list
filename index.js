@@ -8,6 +8,16 @@ interact('li > span').draggable({
 
 	// call this function on every dragend event
 	end (event) {
+		if (event.target.parentNode.classList.contains("selected")) {
+			var selected_elements = document.querySelectorAll('li.selected')
+			for (var i = 0; i < selected_elements.length; i++) {
+				selected_elements[i].style.transform = 'translate(0px, 0px)'
+				// update the posiion attributes
+				selected_elements[i].setAttribute('data-y', 0)
+				selected_elements[i].style.zIndex = 0
+			}
+		}
+
 		// reset translation
 		event.target.parentNode.style.transform = 'translate(0px, 0px)'
 		// update the posiion attributes
@@ -18,8 +28,20 @@ interact('li > span').draggable({
 	}
   }).styleCursor(false)
 
-  function dragMoveListener (event) {
+function dragMoveListener (event) {
 	var target = event.target.parentNode
+	// if this element is selected, move all selected elements
+	if (target.classList.contains("selected")) {
+		var selected_elements = document.querySelectorAll('li.selected')
+		for (var i = 0; i < selected_elements.length; i++) {
+			moveElement(selected_elements[i], event)
+		}
+	} else {
+		moveElement(target, event)
+	}
+}
+
+function moveElement (target, event) {
 	// keep the dragged position in the data-x/data-y attributes
 	var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy
   
@@ -31,11 +53,11 @@ interact('li > span').draggable({
 	// update the posiion attributes
 	target.setAttribute('data-y', y)
 
-	reorder(event)
-  }
+	reorder(target)
+}
 
-  function reorder (event) {
-	var target = event.target.parentNode
+  function reorder (target) {
+	// var target = event.target.parentNode
 	// get the parent element
 	var parent = target.parentNode
 	// get the index of the element
