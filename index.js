@@ -63,13 +63,27 @@ interact('li > span').draggable({
 	target.setAttribute('data-y', target.getAttribute('data-y') % computedHeight)
   }
 
+var pressedKeys = {};
+window.onkeyup = function(e) { pressedKeys[e.keyCode] = false; }
+window.onkeydown = function(e) { pressedKeys[e.keyCode] = true; }
+
 var list_elements = document.querySelectorAll('li')
 
 var myFunction = function() {
-    // this.style.backgroundColor = 'red'
+	// if shift is not pressed, remove selected class from all elements
+	if (!pressedKeys["16"]) {
+		removeSelected()
+	}
 	this.classList.toggle("selected")
 }
 
 for (var i = 0; i < list_elements.length; i++) {
     list_elements[i].addEventListener('click', myFunction, false)
+}
+
+// remove selected class from all elements
+function removeSelected () {
+	for (var i = 0; i < list_elements.length; i++) {
+		list_elements[i].classList.remove("selected")
+	}
 }
