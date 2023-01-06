@@ -71,20 +71,24 @@ window.onkeydown = function(e) { pressedKeys[e.keyCode] = true; }
 var list_elements = document.querySelectorAll('li')
 
 var myFunction = function() {
+	var index = Array.prototype.indexOf.call(this.parentNode.children, this)
+
 	// if shift is not pressed, remove selected class from all elements
 	if (!pressedKeys["16"]) {
-		removeSelected()
+		removeSelected(index)
 	}
 	this.classList.toggle("selected")
 }
 
 for (var i = 0; i < list_elements.length; i++) {
-    list_elements[i].addEventListener('click', myFunction, false)
+	list_elements[i].addEventListener('click', myFunction, false)
 }
 
 // remove selected class from all elements
-function removeSelected () {
+function removeSelected (index) {
 	for (var i = 0; i < list_elements.length; i++) {
-		list_elements[i].classList.remove("selected")
+		if (i != index) {
+			list_elements[i].classList.remove("selected")
+		}
 	}
 }
