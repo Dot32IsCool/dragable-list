@@ -47,6 +47,7 @@ li {
 	transition: transform 0.2s;
 	display: flex;
 	align-items: center;
+	/* view-transition-name: list-item; */
 }
 
 li:hover {
@@ -86,4 +87,16 @@ details {
 	'opsz' 40;
 	color: rgb(131, 131, 131);
 	cursor: ns-resize;
-  }
+}
+
+.boom-down {
+	transition: none;
+	transform: translateY(38px);
+	color: red;
+}
+
+.boom-up {
+	transition: none;
+	transform: translateY(-38px);
+	color: red;
+}
