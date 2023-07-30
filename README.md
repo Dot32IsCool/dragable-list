@@ -4,3 +4,4 @@
 
 ![editable list demo](https://user-images.githubusercontent.com/61964090/210489912-aa6503ec-4702-46e2-bfdc-da694191a89b.gif)
 
+![ezgif-2-051657c027](https://github.com/Dot32IsCool/dragable-list/assets/61964090/9d36a1e6-2be1-4193-9020-ed8505aec788)
